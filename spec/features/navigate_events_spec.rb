@@ -16,6 +16,6 @@ describe "Navigate events" do
 
     click_link event.name
 
-    expect(current_path).to eq(events_path(event))
+    expect(current_path).to eq(event_path(event))
   end
 end

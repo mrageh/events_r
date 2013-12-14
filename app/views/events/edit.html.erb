@@ -1,0 +1,33 @@
+<h1>Editing <%= @event.name %></h1>
+
+<%= form_for(@event) do |f| %>
+  <p>
+   <%= f.label :name %> <br/>
+   <%= f.text_field :name %>
+  </p>
+
+  <p>
+   <%= f.label :description %><br/>
+   <%= f.text_field :description, cols: 40, rows: 7 %>
+  </p>
+
+  <p>
+   <%= f.label :starts_at %><br/>
+   <%= f.number_field :starts_at %>
+  </p>
+
+  <p>
+   <%= f.label :price %><br/>
+   <%= f.text_field :price %>
+  </p>
+
+
+  <p>
+   <%= f.label :location %><br/>
+   <%= f.text_field :location %>
+  </p>
+
+  <p>
+   <%= f.submit %>
+  </p>
+<% end %>

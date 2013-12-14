@@ -3,12 +3,14 @@ describe "Viewing an individual event" do
   it "shows the event's details" do
         event = Event.create(event_attributes(price: 10.00))
 
-        visit events_url(event)
+        visit event_url(event)
 
         expect(page).to have_content(event.name)
         expect(page).to have_content(event.location)
         expect(page).to have_content(event.description)
         expect(page).to have_content(event.starts_at)
+        expect(page).to have_content("All Events")
+        expect(page).to have_content("Edit")
   end
 
   it "shows the price if the price is not $0" do
