@@ -13,7 +13,9 @@ describe "Editing the list of events" do
     fill_in "Description", with: "Game night with the clan"
     fill_in "Location", with: "Birmingham"
     fill_in "Price", with: 0
-
+    select "2013", from: "event[starts_at(1i)]"
+    select "June", from: "event[starts_at(2i)]"
+    select "24",   from: "event[starts_at(3i)]"
     click_button "Update Event"
 
     expect(page).to have_text("Clan Battle")
