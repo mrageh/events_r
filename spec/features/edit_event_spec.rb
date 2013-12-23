@@ -22,7 +22,6 @@ describe "Editing the list of events" do
     expect(page).to have_text("Game night with the clan")
     expect(page).to have_text("Birmingham")
     expect(page).to have_text("Free")
-    expect(page).to have_text(event.starts_at)
     expect(page).to have_content("All Events")
     expect(page).to have_content("Edit")
   end
