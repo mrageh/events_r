@@ -38,4 +38,12 @@ describe "Viewing the list of events" do
     expect(page).to have_text(event1.description[0..10])
     expect(page).to have_text("$10.00")
   end
+
+  it "does not list a event in the past" do
+    event = Event.create(event_attributes(starts_at: 1.month.ago))
+
+    visit events_path
+
+    expect(page).not_to have_text(event.name)
+  end
 end
