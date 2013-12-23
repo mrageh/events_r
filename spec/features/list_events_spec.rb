@@ -21,6 +21,12 @@ describe "Viewing the list of events" do
                           description: 'Practice your craft kata style!',
                           starts_at: 30.days.from_now)
 
+    event4 = Event.create(name: "In the past",
+                          location: "Austin",
+                          price: 15.00,
+                          description: 'Hunker down at the Hackathon!',
+                          starts_at: 5.days.ago)
+
     visit events_path
 
     expect(page).to have_text("3 Events")

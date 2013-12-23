@@ -18,4 +18,10 @@ describe "An Event" do
 
     expect(event.free?).to eq(true)
   end
+
+  it "is only returning upcoming events" do
+    event = Event.create(event_attributes)
+    expect(Event.count).to eq(1)
+    Event.upcoming.first.starts_at >= Time.now
+  end
 end
