@@ -2,6 +2,8 @@
   <header>
     <h1><%= @event.name %></h1>
   </header>
+  <%= image_for(@event) %>
+  <h3><%= pluralize(@event.capacity, 'spot') %></h3>
   <p>
     <%= @event.description %>
   </p>

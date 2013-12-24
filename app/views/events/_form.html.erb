@@ -19,6 +19,15 @@
    <%= f.text_field :price %>
   </p>
 
+  <p>
+    <%= f.label :capacity %>
+    <%= f.number_field :capacity %>
+  </p>
+
+  <p>
+    <%= f.label :image_file_name %>
+    <%= f.text_field :image_file_name, size: 30, placeholder: "GIF, JPG or PNG file name" %>
+  </p>
 
   <p>
    <%= f.label :location %><br/>

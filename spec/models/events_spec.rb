@@ -19,6 +19,12 @@ describe "An Event" do
     expect(event.free?).to eq(true)
   end
 
+  it "checks if there is a image" do
+    event = Event.create(event_attributes(image_file_name: nil))
+
+    expect(event.image_blank?).to eq(true)
+  end
+
   it "is only returning upcoming events" do
     event = Event.create(event_attributes)
     expect(Event.count).to eq(1)
@@ -29,6 +35,12 @@ describe "An Event" do
     event = Event.create(event_attributes)
 
     expect(Event.upcoming).to include(event)
+  end
+
+  it "has a default value for spot" do
+    event = Event.create(event_attributes)
+
+    expect(Event.first.capacity).to eq(1)
   end
 
   it "does not show events in the past" do

@@ -4,6 +4,7 @@ def event_attributes(overrides = {})
     location: "Denver",
     price: 10.00,
     description: "A fun evening of bug smashing",
-    starts_at: 10.days.from_now
+    starts_at: 10.days.from_now,
+    image_file_name: "placeholder.png"
   }.merge(overrides)
 end
