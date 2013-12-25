@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131223235429) do
+ActiveRecord::Schema.define(version: 20121210230623) do
 
   create_table "events", force: true do |t|
     t.string   "name"

@@ -12,7 +12,7 @@ describe "Creating a new event" do
       fill_in "Description", with: "Destroy them"
       fill_in "Location", with: "gSchool"
       fill_in "Price", with: 10
-      fill_in "Image file name", with: "placeholder.png"
+      fill_in "Image Filename", with: "placeholder.png"
       fill_in "Capacity", with: 100
       select "2013", from: "event[starts_at(1i)]"
       select "June", from: "event[starts_at(2i)]"

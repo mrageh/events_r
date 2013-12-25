@@ -24,7 +24,7 @@ describe "Viewing an individual event" do
 
     expect(Event.count).to eq(0)
 
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(events_path)
   end
 
   it "shows the price if the price is not $0" do

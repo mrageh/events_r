@@ -1,41 +1,42 @@
 class EventsController < ApplicationController
+  
   def index
-    @events = Event.upcoming
+    @events = Event.upcoming    
   end
 
   def show
     @event = Event.find(params[:id])
   end
-
+  
   def edit
     @event = Event.find(params[:id])
   end
-
+  
   def update
     @event = Event.find(params[:id])
     @event.update(event_params)
-    redirect_to event_path(@event)
+    redirect_to @event
   end
-
+  
   def new
     @event = Event.new
   end
-
+  
   def create
     @event = Event.new(event_params)
     @event.save
-    redirect_to event_path(@event)
+    redirect_to @event
   end
 
   def destroy
     @event = Event.find(params[:id])
-    @event.delete
-    redirect_to root_path
+    @event.destroy
+    redirect_to events_url
   end
-
-  private
+    
+private
 
   def event_params
-     params.require(:event).permit(:name, :image_file_name, :capacity, :description, :location, :starts_at, :price)
+    params.require(:event).permit(:name, :description, :location, :price, :starts_at, :image_file_name, :capacity)
   end
 end

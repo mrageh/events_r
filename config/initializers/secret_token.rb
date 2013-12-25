@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Events::Application.config.secret_key_base = '76390f7759fb314b53bede767523dccda310f2ec372db985692358ed4c5b919a7409a9dc96568e8e0ea3305e65960b164dcb4f7b05d8b73932767eaf8b5a2ba7'
+Events::Application.config.secret_key_base = 'e544002a62cb443302f2dfaf55a5b6f006bc2f790e1d707374c6cd55d7ff7812856d8378cd461d405c21ac210652038dff056ec118af71b432f82a5d271bbf02'
