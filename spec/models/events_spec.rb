@@ -56,4 +56,46 @@ describe "An Event" do
 
     expect(Event.upcoming).to eq([event1, event2, event3])
   end
+
+  it "name cannot be blank" do
+    event = Event.create(event_attributes(name: nil))
+
+    expect(event.valid?).to be_false
+    expect(event.errors[:name].any?).to be_true
+  end
+
+  it "description cannot be shorter than 25 characters" do
+    event = Event.create(event_attributes(description: "jadfjsdfjakjgdgs"))
+
+    expect(event.valid?).to be_false
+    expect(event.errors[:description].any?).to be_true
+  end
+
+  it "price cannot be a negative number" do
+    event = Event.create(event_attributes(price: -10))
+
+    expect(event.valid?).to be_false
+    expect(event.errors[:price].any?).to be_true
+  end
+
+  it "price cannot be blank" do
+    event = Event.create(event_attributes(price: nil ))
+
+    expect(event.valid?).to be_false
+    expect(event.errors[:price].any?).to be_true
+  end
+
+  it "capacity has to be a whole number" do
+    event = Event.create(event_attributes(capacity: 10.5 ))
+
+    expect(event.valid?).to be_false
+    expect(event.errors[:capacity].any?).to be_true
+  end
+
+  it "images can only have certain extensions" do
+    event = Event.create(event_attributes(image_file_name: "nidosag.pdf" ))
+
+    expect(event.valid?).to be_false
+    expect(event.errors[:image_file_name].any?).to be_true
+  end
 end
