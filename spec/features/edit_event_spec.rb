@@ -10,7 +10,7 @@ describe "Editing the list of events" do
     expect(page).to have_text("Editing #{event.name}")
 
     fill_in "Name", with: "Clan Battle"
-    fill_in "Description", with: "Game night with the clan"
+    fill_in "Description", with: "Game night with the clan is fircking awe"
     fill_in "Location", with: "Birmingham"
     fill_in "Price", with: 0
     select "2013", from: "event[starts_at(1i)]"
