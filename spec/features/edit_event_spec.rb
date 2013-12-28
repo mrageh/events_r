@@ -19,6 +19,7 @@ describe "Editing the list of events" do
     click_button "Update Event"
 
     expect(page).to have_text("Clan Battle")
+    expect(page).to have_text("Event successfully updated!")
     expect(page).to have_text("Game night with the clan")
     expect(page).to have_text("Birmingham")
     expect(page).to have_text("Free")

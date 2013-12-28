@@ -13,19 +13,6 @@ describe "Viewing an individual event" do
         expect(page).to have_content("Edit")
   end
 
-  it "allows us to delete an event" do
-    event = Event.create(event_attributes(price: 10.00))
-
-    visit event_url(event)
-
-    expect(Event.count).to eq(1)
-
-    click_on "Delete"
-
-    expect(Event.count).to eq(0)
-
-    expect(current_path).to eq(events_path)
-  end
 
   it "shows the price if the price is not $0" do
     event = Event.create(event_attributes(price: 20.00))

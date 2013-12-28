@@ -19,6 +19,7 @@ describe "Creating a new event" do
       select "24",   from: "event[starts_at(3i)]"
       click_on "Create Event"
 
+    expect(page).to have_text("Event successfully created!")
     expect(page).to have_content("Clan Battle")
   end
 
