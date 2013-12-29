@@ -94,7 +94,6 @@ describe "An Event" do
 
   it "images can only have certain extensions" do
     event = Event.create(event_attributes(image_file_name: "nidosag.pdf" ))
-
     expect(event.valid?).to be_false
     expect(event.errors[:image_file_name].any?).to be_true
   end
