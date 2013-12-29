@@ -98,4 +98,21 @@ describe "An Event" do
     expect(event.valid?).to be_false
     expect(event.errors[:image_file_name].any?).to be_true
   end
+
+  it "has many registrations" do
+    event = Event.create(event_attributes())
+
+    registration1 = event.registrations.new(registration_attributes())
+    registration2 = event.registrations.new(registration_attributes())
+
+    expect(event.registrations).to include(registration1)
+    expect(event.registrations).to include(registration2)
+  end
+
+  it "deletes associated registration" do
+    event = Event.create(event_attributes())
+
+    event.registrations.create(registration_attributes())
+    expect{event.destroy}.to change(Registration, :count).by(-1)
+  end
 end
