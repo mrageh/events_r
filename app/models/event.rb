@@ -13,6 +13,7 @@ class Event < ActiveRecord::Base
   message: "must reference a GIF, JPG, or PNG image"
   }
 
+  has_many :registrations, dependent: :destroy
 
   def free?
     price.blank? || price.zero?
