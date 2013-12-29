@@ -1,6 +1,20 @@
 require 'spec_helper'
 
 describe Registration do
+
+  it "belongs to a event" do
+    event = Event.create(event_attributes())
+
+    registration  =  event.registrations.new(registration_attributes())
+    expect(registration.event).to eq(event)
+  end
+
+  it "with example attributes is valid" do
+    registration = Registration.create(registration_attributes())
+
+    expect(registration.valid?).to be_true
+  end
+
   it "accepts to register if name is present" do
     registered = Registration.create(registration_attributes())
 
