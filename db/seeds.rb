@@ -114,3 +114,12 @@ Event.create!([
     capacity: 30
   }
 ])
+
+Event.all.each do |event|
+  event.registrations.create!(full_name: "Larry", email: "larry@stooges.com", how_heard: 'Newsletter')
+  event.registrations.create!(full_name: "Moe", email: "moe@stooges.com", how_heard: 'Blog Post')
+  event.registrations.create!(full_name: "Curly", email: "curly@stooges.com", how_heard: 'Twitter')
+  event.registrations.create!(full_name: "Mango", email: "moe@stooges.com", how_heard: 'Web Search')
+end
+
+
