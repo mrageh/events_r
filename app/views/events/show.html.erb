@@ -24,10 +24,12 @@
     <%= pluralize(@event.capacity, 'spot') %>
   </p>
   <p>
-    <%= link_to "Registered Users", event_registrations_path(@event) %>
+    <%= link_to "Who's Registered?", event_registrations_path(@event) %>
   </p>
   
   <footer>
+    <%= link_to "Register!", new_event_registration_path(@event), class:
+    "button ok register" %>
     <nav>
       <%= link_to 'Edit', edit_event_path(@event), class: 'button' %>
       <%= link_to 'Delete', @event, 
