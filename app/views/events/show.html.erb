@@ -23,6 +23,9 @@
   <p>
     <%= pluralize(@event.capacity, 'spot') %>
   </p>
+  <p>
+    <%= link_to "Registered Users", event_registrations_path(@event) %>
+  </p>
   
   <footer>
     <nav>
