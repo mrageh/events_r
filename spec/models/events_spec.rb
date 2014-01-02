@@ -114,4 +114,21 @@ describe "An Event" do
     event.registrations.create(registration_attributes())
     expect{event.destroy}.to change(Registration, :count).by(-1)
   end
+
+  it "calculates the spots left for each event" do
+    event = Event.create(event_attributes(capacity: 5))
+
+    expect(event.spots_left).to eq(5)
+
+    registration = event.registrations.create(registration_attributes())
+
+    expect(event.spots_left).to eq(4)
+  end
+
+  it "checks to see if a event is sold out" do
+    event = Event.create(event_attributes(capacity: 1))
+    registration = event.registrations.create(registration_attributes())
+
+    expect(event.sold_out?).to be_true
+  end
 end

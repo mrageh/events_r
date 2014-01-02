@@ -29,4 +29,15 @@ describe "Viewing an individual event" do
 
     expect(page).to have_text("Free")
   end
+
+  it "shows 'Sold out' if a event has no more spots left" do
+    event = Event.create(event_attributes(capacity: 1))
+    registration = event.registrations.create(registration_attributes)
+
+    visit event_path(event)
+
+    expect(current_path).to eq(event_path(event))
+    expect(page).to have_text("Sold out")
+    expect(page).not_to have_link("Register!")
+  end
 end

@@ -45,4 +45,12 @@ describe "Viewing the list of events" do
 
     expect(page).not_to have_text(event.name)
   end
+
+  it "shows the remaining spots each event has" do
+    event = Event.create(event_attributes(capacity: 10))
+    registration = event.registrations.create(registration_attributes)
+
+    visit events_path
+    expect(page).to have_text("9 spots available")
+  end
 end
