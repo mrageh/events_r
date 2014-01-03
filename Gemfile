@@ -27,8 +27,6 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'newrelic_rpm'
 
-gem 'pg'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -36,6 +34,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'pg'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
@@ -55,6 +54,7 @@ group :test, :development do
   gem "database_cleaner"
   gem 'sqlite3'
   gem 'meta_request'
+  gem 'sqlite3'
 end
 
 group :development do
