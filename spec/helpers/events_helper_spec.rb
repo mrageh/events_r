@@ -4,4 +4,5 @@ describe EventHelper do
 
   it "should show custom helpers"
   it "should also show other helper method"
+  wq
 end
