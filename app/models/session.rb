@@ -16,5 +16,6 @@ class Session
   end
 
   def persisted?
+    false
   end
 end

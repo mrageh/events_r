@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
 
   def create
     if user = Session.new(params[:session]).user 
-      redirect_to user_path(user), notice: "Welcome back, #{user.name}!"
+      session[:user_id] = user.id
+      redirect_to user, notice: "Welcome back, #{user.name}!"
     else
       redirect_to signin_path, notice: 'Invalid Email/Password combination' 
     end
