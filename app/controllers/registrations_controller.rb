@@ -2,7 +2,7 @@ class RegistrationsController < ApplicationController
 
   def index
     @event = Event.find(params[:event_id])
-    @registrations = @event.registrations.all
+    @registrations = @event.registrations.to_a
   end
 
   def new

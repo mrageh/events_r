@@ -2,6 +2,8 @@ Events::Application.routes.draw do
 
   root "events#index"
 
+  post 'sessions' => 'sessions#create'
+  get 'signin' => 'sessions#new'
   get 'signup' => 'users#new'
   resources :users
 

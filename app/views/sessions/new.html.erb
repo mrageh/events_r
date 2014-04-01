@@ -1,0 +1,23 @@
+<header>
+<h1>Sign In</h1>
+</header>
+
+<%= form_for(@session) do |f| %>
+  <%= render "shared/errors", object: @session %>
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :email %>
+        <%= f.email_field :email, size: 40, autofocus: true %>
+      </li>
+      <li class="required">
+        <%= f.label :password%>
+        <%= f.text_field :password, size: 40 %>
+      </li>
+    </ol>
+    <p>
+      <%= f.submit 'Sign In' %>
+    </p>
+  </fieldset >
+<% end %>
+

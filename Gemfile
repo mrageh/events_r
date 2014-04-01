@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.1.0'
+ruby '2.1.1'
 
-gem 'rails', '4.0.1'
+gem 'rails', '4.0.2'
 gem 'sass-rails', '~> 4.0.0'
 gem 'awesome_print', :require => 'ap'
 gem 'uglifier', '>= 1.3.0'
@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'newrelic_rpm'
-gem 'bcrypt'
+gem 'bcrypt-ruby'
 gem 'thin'
 
 group :test, :development do
