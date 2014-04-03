@@ -6,7 +6,7 @@ feature 'Signing in' do
       email: 'Adam@example.com',
       password: 'password',
       password_confirmation: 'password'
-    )) 
+    ))
   end
 
   scenario 'works with a valid email address and password combo' do
@@ -14,9 +14,7 @@ feature 'Signing in' do
 
     click_link 'Sign In'
 
-    fill_in 'Email', with: @user.email 
-    fill_in 'Password', with: 'password'
-    click_button 'Sign In'
+    sign_in(@user.email, 'password')
 
     expect(current_path).to eq(user_path(@user))
     expect(page).to have_text("Welcome back, #{@user.name}!")
@@ -30,9 +28,7 @@ feature 'Signing in' do
 
     click_link 'Sign In'
 
-    fill_in 'Email', with: 'bad@example.com'
-    fill_in 'Password', with: 'invalidpassword'
-    click_button 'Sign In'
+    sign_in('bad@example.com', 'invalidpassword')
 
     expect(page).to have_text('Invalid')
     expect(page).not_to have_link(@user.name)
