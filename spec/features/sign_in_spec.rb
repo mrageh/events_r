@@ -35,4 +35,11 @@ feature 'Signing in' do
     expect(page).to have_link('Sign In')
     expect(page).to have_link('Sign Up')
   end
+
+  scenario 'redirects to intended url after sign in' do
+    visit users_path
+    sign_in(@user.email, 'password')
+
+    expect(current_path).to eq users_path
+  end
 end
