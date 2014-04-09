@@ -1,24 +1,24 @@
 require 'spec_helper'
 
-describe "Listing Registrations" do
-  it "should show a list of registered users only for that event" do
-    event = Event.create(event_attributes)
-    registration1 = event.registrations.create(registration_attributes)
-    registration2 = event.registrations.create(registration_attributes(full_name: "two"))
-    registration3 = event.registrations.create(registration_attributes(full_name: "three"))
+feature "Listing Registrations" do
+  before do
+    @user = User.create!(user_attributes)
+    sign_in('user@example.com', 'secret')
+  end
 
-    event1 = Event.create(event_attributes)
-    registration = event1.registrations.create(registration_attributes(full_name: "Lool"))
+  scenario "shows the registrations for a specific event" do
+    event1 = Event.create!(event_attributes(name: "Classical Reading"))
+    registration1 = event1.registrations.create!(registration_attributes(user_id: @user.id))
+    registration2 = event1.registrations.create!(registration_attributes(user_id: @user.id))
 
-    visit event_registrations_path(event)
 
-    expect(current_path).to eq(event_registrations_path(event))
-    expect(event.registrations.count).to eq(3)
+    event2 = Event.create!(event_attributes(name: "Super"))
+    registration3 = event2.registrations.create!(registration_attributes(how_heard: 'Other'))
 
-    expect(page).to have_text(registration1.full_name)
-    expect(page).to have_text(registration2.full_name)
-    expect(page).to have_text(registration3.full_name)
+    visit event_registrations_url(event1)
 
-    expect(page).not_to have_text(registration.full_name)
+    expect(page).to have_text(registration1.how_heard)
+    expect(page).to have_text(registration2.how_heard)
+    expect(page).not_to have_text(registration3.how_heard)
   end
 end

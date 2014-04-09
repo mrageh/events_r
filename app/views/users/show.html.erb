@@ -7,6 +7,10 @@
     <p>
       <%= @user.created_at.strftime("%B %Y") %>
     </p>
+    <h3>Currently Registered For:</h3>
+    <% @user.registrations.each do |r| %>
+      <p><%= r.event.name %> <%="(#{time_ago_in_words(r.created_at)})"%></p>
+    <% end %>
   </header>
   <footer>
     <nav>
