@@ -1,8 +1,18 @@
 require 'spec_helper'
 
 describe "Creating a new event" do
+  before do
+    @user = User.create!(user_attributes(
+      email: 'adam@example.com',
+      password: 'password',
+      password_confirmation: 'password',
+      admin: true,
+    ))
+  end
+
   it "allows me to make a new event" do
     visit root_path
+    sign_in('adam@example.com', 'password')
     click_on "Add New Event"
 
     expect(current_path).to eq(new_event_path)
@@ -24,8 +34,8 @@ describe "Creating a new event" do
   end
 
   it "adds a default image if none is specified" do
-
     visit root_path
+    sign_in('adam@example.com', 'password')
     click_on "Add New Event"
 
     fill_in "Name", with: "Clan Battle"

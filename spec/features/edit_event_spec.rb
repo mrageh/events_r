@@ -2,8 +2,14 @@ require "spec_helper"
 
 describe "Editing the list of events" do
   it "edits the event" do
-
+    User.create!(user_attributes(
+      email: 'adam@example.com',
+      password: 'password',
+      password_confirmation: 'password',
+      admin: true,
+    ))
     event = Event.create(event_attributes())
+    sign_in('adam@example.com', 'password')
 
     visit edit_event_path(event)
 

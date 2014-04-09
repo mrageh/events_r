@@ -10,7 +10,6 @@ describe "Viewing an individual event" do
         expect(page).to have_content(event.description)
         expect(page).to have_content(event.starts_at)
         expect(page).to have_content("All Events")
-        expect(page).to have_content("Edit")
   end
 
 
