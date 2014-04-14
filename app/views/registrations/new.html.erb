@@ -7,21 +7,13 @@
   <fieldset>
     <ol>
       <li class="required">
-        <%= f.label :full_name %>
-        <%= f.text_field :full_name, size: 40, autofocus: true %>
-      </li>
-      <li class="required">
-        <%= f.label :email %>
-        <%= f.text_field :email, size: 40 %>
-      </li>
-      <li class="required">
         <%= f.label :how_heard %>
-        <%= f.select :how_heard, Registration::HOW_HEARD_OPTIONS, 
+        <%= f.select :how_heard, Registration::HOW_HEARD_OPTIONS,
                      prompt: "Pick one" %>
       </li>
     </ol>
     <p>
-      <%= f.submit %> 
+      <%= f.submit %>
       <%= link_to "Cancel", @event, class: 'button' %>
     </p
   </fieldset>
