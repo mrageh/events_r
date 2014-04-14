@@ -9,6 +9,14 @@
     <%= @event.description %>
   </p>
 
+  <p>
+    <%= pluralize(@event_users.size, 'Like')%>
+  </p>
+
+  <%= like_and_unlike_button %>
+
+  <%= render 'users' %>
+
   <h3>Price</h3>
   <p>
     <%= format_price(@event) %>

@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @liked_events = @user.liked_events
   end
 
   def update

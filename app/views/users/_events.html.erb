@@ -1,0 +1,6 @@
+<% if @liked_events.any? %>
+  <h3>Liked Events</h3>
+  <% @liked_events.each do |event| %>
+    <%= link_to event.name %>
+  <% end %>
+<% end %>

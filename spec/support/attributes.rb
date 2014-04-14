@@ -25,3 +25,10 @@ def user_attributes(overrides = {})
     admin: false,
   }.merge(overrides)
 end
+
+def like_attributes(overrides = {})
+  {
+   event_id: 1,
+   user_id: 1,
+  }.merge(overrides)
+end

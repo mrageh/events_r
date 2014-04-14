@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @event_users = @event.users
   end
 
   def edit
@@ -42,7 +43,7 @@ class EventsController < ApplicationController
     redirect_to events_url, alert: "Event successfully deleted!"
   end
 
-private
+  private
 
   def event_params
     params.require(:event).permit(:name, :description, :location, :price, :starts_at, :image_file_name, :capacity)
