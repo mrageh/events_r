@@ -32,3 +32,9 @@ def like_attributes(overrides = {})
    user_id: 1,
   }.merge(overrides)
 end
+
+def category_attributes(overrides = {})
+  {
+    name: 'Ruby',
+  }.merge(overrides)
+end

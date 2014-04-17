@@ -32,6 +32,7 @@ end
 group :test do
   gem 'launchy'
   gem 'capybara'
+  gem 'shoulda-matchers'
 end
 
 group :doc do
