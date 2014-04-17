@@ -35,6 +35,13 @@
     <%= link_to "Who's Registered?", event_registrations_path(@event) %>
   </p>
 
+  <h3>Categories</h3>
+  <% if @categories.any? %>
+    <% @categories.each do |category| %>
+      <p><%= category.name %></p>
+    <% end %>
+  <% end %>
+
   <footer>
     <%= register_link(@event) %>
     <p><%= pluralize(@event.spots_left, 'spot') %> available</p>

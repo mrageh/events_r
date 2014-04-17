@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'An Event' do
+describe Event do
   it 'is free if the price is $0' do
     event = Event.new(price: 0)
 
@@ -154,5 +154,13 @@ describe 'An Event' do
       expect(event.users).to include user1
       expect(event.users).to include user2
     end
+  end
+
+  context '#categorisation' do
+    it { should have_many(:categorisations) }
+  end
+
+  context '#categories' do
+    it { should have_many(:categories).through(:categorisations) }
   end
 end
