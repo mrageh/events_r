@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
   has_many :registrations, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :users, through: :likes
 
   validates :name, :location, presence: true
   validates :description, length: {minimum: 25}

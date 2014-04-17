@@ -1,0 +1,7 @@
+<% if @event_users.any? %>
+  <h3>Users that have so far liked</h3>
+  <% @event_users.each do |user| %>
+    <%= link_to user.name %>
+  <% end %>
+<% end %>
+

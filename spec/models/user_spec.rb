@@ -77,4 +77,36 @@ describe User do
       expect(user.registrations).to include(registration2)
     end
   end
+
+  context '#likes' do
+    it 'has many likes' do
+      @user.save
+      user = @user
+      like1 = Like.create!(like_attributes(user_id: user.id))
+      like2 = Like.create!(like_attributes(user_id: user.id))
+
+      expect(user.likes).to include like1
+      expect(user.likes).to include like2
+    end
+  end
+
+  context '#liked_events' do
+    it 'returns all liked events' do
+      @user.save
+      user = @user
+      event1 = Event.create!(event_attributes)
+      event2 = Event.create!(event_attributes)
+      like1 = Like.create!(like_attributes(
+        user_id: user.id,
+        event_id: event1.id
+      ))
+      like2 = Like.create!(like_attributes(
+        user_id: user.id,
+        event_id: event2.id
+      ))
+
+      expect(user.liked_events).to include event1
+      expect(user.liked_events).to include event2
+    end
+  end
 end
